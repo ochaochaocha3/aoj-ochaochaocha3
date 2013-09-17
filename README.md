@@ -1,6 +1,6 @@
 AOJ 解答集
 ==========
-[Aizu Online Judge (AOJ)](http://judge.u-aizu.ac.jp/onlinejudge/) の自分の解答を集めたもの。使用言語は多い順に Ruby、C++、C。
+[Aizu Online Judge (AOJ)](http://judge.u-aizu.ac.jp/onlinejudge/) の自分の解答を集めたもの。ジャッジを通ったもののみ。使用言語は多い順に Ruby、C++、C。
 
 ファイル構成
 ------------
