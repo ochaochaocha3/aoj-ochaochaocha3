@@ -4,6 +4,7 @@ CC = clang
 CXX = clang++
 CFLAGS += -Wall
 CXXFLAGS += -Wall
+CXXFLAGS += -std=c++11
 LDLIBS += -lm
 BINDIR = bin
 
