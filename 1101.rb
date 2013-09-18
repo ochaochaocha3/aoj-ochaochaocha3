@@ -20,18 +20,15 @@ class TextEditor
   end
 
   def forward_word
-    # if @cursor < @text.length
-    #   m = /^ +/.match(text_after_cursor)
-    #   @cursor += m[0].length if m
-    # end
+    if @cursor < @text.length
+      m = /^ +/.match(text_after_cursor)
+      @cursor += m[0].length if m
+    end
 
-    # if @cursor < @text.length
-    #   m = /^[^ ]+/.match(text_after_cursor)
-    #   @cursor += m[0].length if m
-    # end
-
-    @cursor += 1 while @cursor < @text.length && @text[@cursor] == " "
-    @cursor += 1 while @cursor < @text.length && @text[@cursor] != " "
+    if @cursor < @text.length
+      m = /^[^ ]+/.match(text_after_cursor)
+      @cursor += m[0].length if m
+    end
 
     self
   end
@@ -42,17 +39,14 @@ class TextEditor
   end
 
   def backward_word
-    # if @cursor > 0
-    #   last_blank_pos = text_before_cursor.sub(/\s+$/, "").rindex(" ")
-    #   if last_blank_pos
-    #     @cursor = last_blank_pos + 1
-    #   else
-    #     @cursor = 0
-    #   end
-    # end
-
-    @cursor -= 1 while @cursor > 0 && @text[@cursor - 1] == " "
-    @cursor -= 1 while @cursor > 0 && @text[@cursor - 1] != " "
+    if @cursor > 0
+      last_blank_pos = text_before_cursor.sub(/\s+$/, "").rindex(" ")
+      if last_blank_pos
+        @cursor = last_blank_pos + 1
+      else
+        @cursor = 0
+      end
+    end
 
     self
   end
@@ -73,18 +67,9 @@ class TextEditor
   end
 
   def delete_word
-    # unless @cursor == @text.length
-    #   @text = text_before_cursor +
-    #     text_after_cursor.sub(/ *[^ ]*/, "")
-    # end
-
     if @cursor < @text.length
-      word_end = @cursor
-      word_end += 1 while word_end < @text.length && @text[word_end] == " "
-      return self if word_end == @text.length
-
-      word_end += 1 while word_end < @text.length && @text[word_end] != " "
-      @text = text_before_cursor + @text[word_end..-1]
+      @text = text_before_cursor +
+        text_after_cursor.sub(/ *[^ ]+/, "")
     end
 
     self
