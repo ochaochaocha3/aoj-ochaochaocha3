@@ -8,8 +8,8 @@ end
 
 the_day = %w[Thursday Friday Saturday Sunday Monday Tuesday Wednesday]
 
-loop do
-  month, day = gets.split.map(&:to_i)
+while line = gets
+  month, day = line.split.map(&:to_i)
   break if month.zero? && day.zero?
 
   days = offset[month - 1] + (day - 1)
