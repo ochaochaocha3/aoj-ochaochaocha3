@@ -9,7 +9,7 @@ while line = gets
     distances[i] = distances[i - 1] + l
   end
 
-  x = v1.to_f / (v1 + v2) * lengths.reduce(0, :+)
+  x = v1.to_f / (v1 + v2) * distances.last
 
   distances.each_with_index do |d, i|
     if x <= d
